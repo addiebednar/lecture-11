@@ -1,7 +1,7 @@
 lecture-11 <img src="https://slu-soc5050.github.io/images/logo.png" align="right" />
 ===========================================================
 [![](https://img.shields.io/badge/semester-fall%202018-orange.svg)](https://github.com/slu-soc5050/lecture-11)
-[![](https://img.shields.io/badge/release-draft-red.svg)](https://github.com/slu-soc5050/lecture-11)
+[![](https://img.shields.io/badge/release-lecture-orange.svg)](https://github.com/slu-soc5050/lecture-11)
 [![](https://img.shields.io/github/release/slu-soc5050/lecture-11.svg?label=version)](https://github.com/slu-soc5050/lecture-11/releases)
 [![](https://img.shields.io/github/last-commit/slu-soc5050/lecture-11.svg)](https://github.com/slu-soc5050/lecture-11/commits/master)
 [![](https://img.shields.io/github/repo-size/slu-soc5050/lecture-11.svg)](https://github.com/slu-soc5050/lecture-11)
@@ -13,7 +13,10 @@ This is the repository for Lecture 11 of the Saint Louis University course SOC 4
 ### Lecture Objectives
 At the end of this lecture and its corresponding assignments, students should be able to:
 
-1.
+1. Integrate in-line code and LaTeX equations into `.Rmd` files
+2. Construct scatterplots designed to show trends when comparing continuous variables
+3. Explain the meaning of the various different types of data objects in `R`
+4. Estimate the value of Pearson's $r$ using a variety of techniques in `R`
 
 ### Lecture Resources
 
