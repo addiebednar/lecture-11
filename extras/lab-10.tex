@@ -1,0 +1,85 @@
+\documentclass{tufte-handout}
+
+\usepackage{xcolor}
+
+% set image attributes:
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+% set hyperlink attributes
+\hypersetup{colorlinks}
+
+% create environment for bottom paragraph:
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+
+\usepackage{enumerate}
+
+% set table attributes
+\usepackage{tabu}
+\usepackage{booktabs}
+
+% ============================================================
+
+% define the title
+\title{SOC 4015/5050: Lab-10 - Correlations in R}
+\author{Christopher Prener, Ph.D.}
+\date{Fall 2018}
+
+% ============================================================
+
+\begin{document}
+
+% ============================================================
+
+\maketitle % generates the title
+
+% ============================================================
+
+\vspace{5mm}
+\section{Directions}
+Please complete all steps below. All work should be uploaded to your GitHub assignment repository by 4:15pm on Monday, November 12\textsuperscript{th}, 2018. 
+
+\vspace{5mm}
+\section{Analysis Development}
+Using RStudio and your operating system's file manager, create an R Project in the \textit{existing} directory in your assignments repository named \texttt{Lab-10}. Add a \texttt{README.md} file, notebook, and all necessary folders before beginning.\sidenote{This initial section follows the project workflow that is available in the \texttt{lecture-03} repo!}
+
+\vspace{5mm}
+\section{Data Preparation}
+\begin{enumerate}
+\item Using the \texttt{auto17} data set from \texttt{testDriveR}, create a binary logical variable based on \texttt{guzzlerStr}, where \texttt{TRUE} is for vehicles that are gas guzzlers and \texttt{FALSE} is for all other vehicles.
+\item Create a subset of the data that contains the following four variables: \texttt{combFE}, \texttt{fuelCost}, \texttt{cyl}, and your new binary guzzler variable. Write your analysis data to the \texttt{data/} subdirectory as a \texttt{.csv} file.
+\item Conduct a quick missing data analysis - is missing data a problem in this data set? Use \texttt{knitr} to make sure this output is nicely formatted in your notebook.
+\end{enumerate}
+
+\vspace{5mm}
+\section{Creating Scatterplots}
+\textit{For each plot below, make sure you have a version embedded in your notebook with a copy saved in your \texttt{results/} subdirectory.}
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item Create a scatterplot of the relationship between combined fuel efficiency (in miles per gallon) and fuel cost.
+\item Use the new guzzler logical variable as the grouping variable on a scatterplot of the relationship between combined fuel efficiency (in miles per gallon) and fuel cost.
+\item Use the new guzzler logical variable as the faceting and grouping variables on a scatterplot of the relationship between combined fuel efficiency (in miles per gallon) and fuel cost.
+\item Add linear model lines for both guzzler and non-guzzler vehicles, using both different colors and different patterns for each line.
+\item Create a statistical scatterplot that also contains Pearson's $r$ output for the relationship between combined fuel efficiency (in miles per gallon) and fuel cost.
+\end{enumerate}
+
+\vspace{5mm}
+\section{Correlation in \texttt{R}}
+\begin{enumerate}
+\setcounter{enumi}{8}
+\item Create a correlation table for the four variables in your analysis data set. Use \texttt{knitr} to create a \textit{well-formatted} version of this table in your notebook, and save a \texttt{.csv} version of this table in your \texttt{results/} subdirectory.
+\item Provide an interpretation for the relationship between combined fuel efficiency (in miles per gallon) and fuel cost.
+\item Provide an interpretation for the relationship between fuel cost and the number of cylinders in an engine.
+\item Provide an interpretation for the relationship between combined fuel efficiency (in miles per gallon) and the number of cylinders in an engine.
+\end{enumerate}
+
+\vspace{5mm}
+\section{Sample Size Estimates}
+\begin{enumerate}
+\setcounter{enumi}{12}
+\item What sample size would be needed to detect a correlation coefficient of $r = .89$ with power of .8 in a two-sided test of significance?
+\item What sample size would be needed to detect a correlation coefficient of $r = .29$ with power of .9 in a two-sided test of significance?
+\end{enumerate}
+% ============================================================
+\end{document}

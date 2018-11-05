@@ -1,0 +1,142 @@
+\documentclass{tufte-handout}
+
+\usepackage{xcolor}
+
+% set hyperlink attributes
+\hypersetup{colorlinks}
+
+% set image attributes:
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+% indent subsections
+\newenvironment{subs}
+  {\adjustwidth{3em}{0pt}}
+  {\endadjustwidth}
+  
+% ============================================================
+
+% define the title
+\title{SOC 4015/5050: Lecture 11 Functions}
+\author{Christopher Prener, Ph.D.}
+\date{Fall 2018}
+% ============================================================
+\begin{document}
+% ============================================================
+\maketitle % generates the title
+% ============================================================
+
+\vspace{5mm}
+\section{Packages}
+\begin{itemize}
+\item \texttt{base}
+\item \texttt{ggplot2}
+\item \texttt{ggstatsplot}
+\item \texttt{grdevices}
+\item \texttt{Hmisc}
+\item \texttt{naniar}
+\item \texttt{pwr}
+\item \texttt{stats}
+\end{itemize}
+
+\vspace{5mm}
+\section{In-line \texttt{R} Code}
+\begin{subs}
+\subsection{Rounding Values}
+\noindent \texttt{base::}{\color{red}\texttt{round}}\texttt{(\textit{x}, digits = \textit{val})}
+
+\vspace{3mm}
+\subsection{Implementing In-line \texttt{R} Code}
+\begin{verbatim}
+```{r load-data}
+library(ggplot2)
+auto <- mpg
+```
+
+The average highway fuel efficiency in the data set is 
+`r round(mean(auto$hwy), digits = 3)`.
+\end{verbatim}
+\end{subs}
+
+\vspace{5mm}
+\section{Scatterplots}
+\begin{subs}
+\subsection{Basic Scatterplot}
+\noindent \texttt{ggplot2::}{\color{red}\texttt{geom\_point}}\texttt{(mapping = aes(x = \textit{xvar}, y = \textit{yvar}))}
+
+\vspace{3mm}
+\subsection{Scatterplot with Smoothed Line}
+\noindent \texttt{ggplot2::}{\color{red}\texttt{geom\_smooth}}\texttt{(method = "lm", \\mapping = aes(color = "\#\textit{hex}"))}\sidenote{Use \href{http://colorhexa.com}{http://colorhexa.com} to selection hex values!}
+
+\vspace{3mm}
+\subsection{Scatterplot with Grouping Variable}
+\noindent \texttt{ggplot2::}{\color{red}\texttt{geom\_point}}\texttt{(mapping = aes(x = \textit{xvar}, y = \textit{yvar}, \\ color = \textit{groupVar}))}
+
+\vspace{3mm}
+\subsection{Scatterplot with Smoothed Line by Grouping Variable}
+\noindent \texttt{ggplot2::}{\color{red}\texttt{geom\_smooth}}\texttt{(method = "lm", \\mapping = aes(color = \textit{groupVar}, linetype = \textit{groupVar}))}
+
+\vspace{3mm}
+\subsection{Scatterplot with Facet}
+\noindent \texttt{ggplot2::}{\color{red}\texttt{facet\_grid}}\texttt{(. \textasciitilde\ \textit{facetVar})}
+
+\vspace{3mm}
+\subsection{Statistical Scatterplot}
+\noindent \texttt{ggstatsplot::}{\color{red}\texttt{ggscatterstats}}\texttt{(data = \textit{data}, x = \textit{xvar}, \\y = \textit{yvar})}
+
+\vspace{3mm}
+\subsection{Create a File to Save a Statistical Scatterplot}
+\noindent \texttt{grdevices::}{\color{red}\texttt{png}}\texttt{(\textit{filepath}, width = \textit{val}, height = \textit{val})}\sidenote{Values for \texttt{width} and \texttt{height} should be specified in points.}
+
+\vspace{3mm}
+\subsection{Writing the Statistical Scatterplot to File}
+\noindent \texttt{grdevices::}{\color{red}\texttt{dev.off}}\texttt{()}
+\end{subs}
+
+\vspace{5mm}
+\section{Creating Data Objects}
+\begin{subs}
+\subsection{Creating a Vector}
+\noindent \texttt{base::}{\color{red}\texttt{c}}\texttt{(\textit{element, element, element})}
+
+\vspace{3mm}
+\subsection{Creating a Data Frame}
+\noindent \texttt{base::}{\color{red}\texttt{c}}\texttt{(\textit{vector, vector}, stringsAsFactors = FALSE)}
+
+\vspace{3mm}
+\subsection{Creating a Matrix}
+\noindent \texttt{base::}{\color{red}\texttt{as.matrix}}\texttt{(\textit{objectName})}
+\end{subs}
+
+\vspace{5mm}
+\section{Missing Data}
+\begin{subs}
+\subsection{Missing Data Anlysis}
+\noindent \texttt{naniar::}{\color{red}\texttt{miss\_var\_summary}}\texttt{(\textit{data})}
+
+\vspace{3mm}
+\subsection{Remove All Missing Data}
+\noindent \texttt{stats::}{\color{red}\texttt{na.omit}}\texttt{(\textit{data})}
+\end{subs}
+
+\vspace{5mm}
+\section{Pearson's r}
+\begin{subs}
+\subsection{Basic Approach}
+\noindent \texttt{stats::}{\color{red}\texttt{cor}}\texttt{(\textit{dataFrame}, \textit{use}, method = "pearson")}
+
+\vspace{3mm}
+\subsection{\texttt{Hmisc} Approach}
+\noindent \texttt{Hmisc::}{\color{red}\texttt{rcorr}}\texttt{(\textit{matrix}, type = "pearson")}
+
+\vspace{3mm}
+\subsection{Full Table Approach}
+\noindent {\color{red}\texttt{corrTable}}\texttt{(\textit{dataFrame}, coef = "pearson", listwise = TRUE, \\ round = 3, pStar = 3, ...)}
+\end{subs}
+
+\vspace{5mm}
+\section{Sample Size Estimate}
+\noindent \texttt{pwr::}{\color{red}\texttt{pwr.r.test}}\texttt{(r = \textit{rVal}, sig.level = .05, power = \textit{powerVal}, \\ alernative = "two.sided")}
+
+% ============================================================
+\end{document}

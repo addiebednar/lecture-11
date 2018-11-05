@@ -1,0 +1,66 @@
+\documentclass{tufte-handout}
+
+\usepackage{xcolor}
+
+% set hyperlink attributes
+\hypersetup{colorlinks}
+
+% set image attributes:
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+% create environment for bottom paragraph:
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+
+% ============================================================
+
+% define the title
+\title{SOC 4015/5050: Lecture 11 LaTeX Commands}
+\author{Christopher Prener, Ph.D.}
+\date{Fall 2018}
+% ============================================================
+\begin{document}
+% ============================================================
+\maketitle % generates the title
+% ============================================================
+
+\vspace{5mm}
+\section{Formula Construction}
+\subsection{Math Mode}
+\noindent {\color{red}\texttt{\$}} \texttt{\textit{a = b+2}} {\color{red}\texttt{\$}}
+
+\vspace{3mm}
+\subsection{Summation Notation}
+\noindent {\color{red}\texttt{\textbackslash sum}}\texttt{\_\{\textit{i} = \textit{val}\}\textasciicircum\{\textit{n}\}}
+
+\vspace{3mm}
+\section{Bar Over Letter}
+\noindent {\color{red}\texttt{\textbackslash bar}}\texttt{\{\textit{letter}\}}
+
+\vspace{3mm}
+\section{Subscript}
+\noindent \texttt{\{mainText\}\_\{subScript\}}
+
+\vspace{3mm}
+\section{Superscript}
+\noindent \texttt{\{mainText\}\textasciicircum\{superScript\}}
+
+\vspace{3mm}
+\section{Fraction}
+\noindent {\color{red}\texttt{\textbackslash frac}}\texttt{\{\textit{numerator}\}}\texttt{\{\textit{denominator}\}}
+
+\vspace{3mm}
+\section{Square Root}
+\noindent {\color{red}\texttt{\textbackslash sqrt}}\texttt{\{\textit{value}\}}
+
+\vspace{5mm}
+\section{Greek Letters}
+\subsection{mu ($\mu$)}
+\noindent {\color{red}\texttt{\textbackslash mu}}
+
+\vspace{3mm}
+\subsection{sigma ($\sigma$)}
+\noindent {\color{red}\texttt{\textbackslash sigma}}
+
+% ============================================================
+\end{document}
